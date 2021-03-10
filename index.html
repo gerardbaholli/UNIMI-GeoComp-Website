@@ -27,20 +27,23 @@
 <body>
 
 
-
 <div class="container">
 
     <!-- TITOLO -->
     <div class="main">
         <img src="assets/logoUNIMI.png" class="logo" width="100" height="100">
         <h1>Spline Space</h1>
-        <h2>Progetto di Geometria Computazionale (A.A. 2020-2021)</h2>
+        <h2>Geometria Computazionale (A.A. 2020-2021)</h2>
         <div class="intro">
             <p>
-                Spline Space &egrave; un videogioco 2D sviluppato con il motore grafico Unity. Il giocatore dovr&agrave; disegnare, mediante l'utilizzo di curve Spline, una traettoria che gli permetta di raccogliere tutti i checkpoint distribuiti sulla mappa entro un tempo limite.
+                Spline Space &egrave; un videogioco 2D sviluppato con il motore grafico Unity. Il giocatore dovr&agrave;
+                disegnare, mediante l'utilizzo di curve Spline, una traettoria che gli permetta di raccogliere tutti i
+                checkpoint distribuiti sulla mappa entro un tempo limite.
             </p>
             <p>
-                Il progetto &egrave; stato sviluppato per il corso di <a href="http://www.mat.unimi.it/users/alzati/Geometria_Computazionale_98-99/">Geometria Computazionale</a> dell'Universit&agrave; degli Studi di Milano nell'anno accademico 2020/2021.
+                Il progetto &egrave; stato sviluppato per il corso di <a
+                    href="http://www.mat.unimi.it/users/alzati/Geometria_Computazionale_98-99/">Geometria
+                Computazionale</a> dell'Universit&agrave; degli Studi di Milano nell'anno accademico 2020/2021.
             </p>
         </div>
     </div>
@@ -49,20 +52,42 @@
     <!-- TEORIA -->
     <div class="changelog">
         <h2 class="title flash">Teoria</h2>
+        <!--<div class="exp">-->
 
-        <div class="exp">
-            <h3>Curve di Bezier</h3>
-            <p>
-                Testo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo lungo.
-            </p>
-            <p>
-                When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-                \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
-            </p>
-            <p>
-                <img src="assets/bezier.gif">
-            </p>
-        </div>
+        <h3>Curve di B&eacute;zier</h3>
+        <p>
+            Le curve di Bezier sono state inventante per dare la possibilit&agrave; di creare delle curve attraverso l'utilizzo
+            di punti che fanno parte del poligono di controllo e in modo da poter essere trattate facilmente da un computer.
+        </p>
+        <p>
+            Siano dati \(n+1\) punti \(\{p_{0},p_{1}, \cdots , p_{n}\}\). La curva &egrave; definita dall'equazione:
+        </p>
+        <p>
+            \[p(t) = \sum_{k=0}^{n}{p_{k}B_{n,k}(t)} \quad \text{\(t \in [0,1]\)}\]
+        </p>
+        <p>
+            Dove \(B_{n,k}(t)\) sono i polinomi di Bernstein ed \(n\) &egrave; il grado della curva.
+        </p>
+        <p>
+            Tali punti si dicono punti di controllo. La spezzata formata dai segmenti che li congiungono si chiama
+            poligono di controllo. Soltanto il primo e l'ultimo punto di controllo appartengono alla curva di B&eacute;zier,
+            mentre i restanti contribuiscono a modellizzare la curva nelle loro vicinanze. Si tratta quindi di una curva
+            approssimante, e non di una curva interpolante.
+        </p>
+        <p>
+            I polinomi di Bernstein servono come funzioni di blending per le curve di B&eacute;zier, cio&egrave; come
+            pesi
+            associati ai punti di controllo. L'ordine del polinomio che rappresenta la curva &egrave; uguale al numero
+            dei punti di controllo meno uno.
+            Uno svantaggio delle curve di B&eacute;zier &egrave; rappresentato dalla mancanza di controllo locale sulla
+            curva.
+            Se modifichiamo un punto di controllo, la curva intera viene modificata, e non solo la parte locale vicina
+            al punto.
+        </p>
+        <p>
+            <img src="assets/bezier.gif">
+        </p>
+        <!--</div>-->
     </div>
 
     <!-- MANUALE -->
@@ -77,16 +102,21 @@
     <div class="changelog">
         <h2 class="title flash">Applet</h2>
         <div class="exp">
-            &Egrave; possibile giocare direttamente dal browser tramite WebGL, oppure scaricare la versione per Windows o MacOS.
+            &Egrave; possibile giocare direttamente dal browser tramite WebGL, oppure scaricare la versione per Windows
+            o MacOS.
             <ul>
                 <li class="job">
                     <div class="left"><a href="applet.html">WebGL</a></div>
                 </li>
                 <li class="fun">
-                    <div class="left"><a href="https://github.com/gerardbaholli/level-design-document/raw/master/main.pdf">Windows</a></div>
+                    <div class="left"><a
+                            href="https://github.com/gerardbaholli/level-design-document/raw/master/main.pdf">Windows</a>
+                    </div>
                 </li>
                 <li class="event">
-                    <div class="left"><a href="https://github.com/gerardbaholli/level-design-document/raw/master/main.pdf">Mac OS</a></div>
+                    <div class="left"><a
+                            href="https://github.com/gerardbaholli/level-design-document/raw/master/main.pdf">Mac OS</a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -99,7 +129,6 @@
             Gerard Baholli - <a href="mailto:gerard.baholli@studenti.unimi.it">gerard.baholli@studenti.unimi.it</a>
         </p>
     </div>
-
 
 
 </div>
