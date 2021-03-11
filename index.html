@@ -3,10 +3,10 @@
 <head>
     <title>Spline Space</title>
     <meta name="description" content="Geometria Computazionale"/>
-    <link rel="icon" type="image/x-icon" href="assets/face-24px.svg">
+    <link rel="icon" type="image/x-icon" href="assets/sports_esports-24px.svg">
 
     <!-- Favicon/theme -->
-    <link rel="shortcut icon" href="assets/face-24px.svg">
+    <link rel="shortcut icon" href="assets/sports_esports-24px.svg">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -53,17 +53,19 @@
     <div class="changelog">
         <h2 class="title flash">Teoria</h2>
         <!--<div class="exp">-->
+        <p>
+            Nel seguente progetto sono state implementate le curve Spline per permettere al giocatore di tracciare il
+            percorso che la navicella spaziale dovr&agrave; effettuare per raccogliere i checkpoint predisposti nella
+            mappa. L'idea alla base delle curve Spline &egrave; quella di incollare più curve di B&eacute;zier imponendo
+            delle condizioni di regolarità nei punti di saldatura.
+        </p>
 
         <h3>Curve di B&eacute;zier</h3>
         <p>
-            Le curve di Bezier sono state inventante per dare la possibilit&agrave; di creare delle curve attraverso l'utilizzo
-            di punti che fanno parte del poligono di controllo e in modo da poter essere trattate facilmente da un computer.
+            Siano dati \(n+1\) punti \(\{P_{0},P_{1}, \cdots , P_{n}\}\). La curva &egrave; definita dall'equazione:
         </p>
         <p>
-            Siano dati \(n+1\) punti \(\{p_{0},p_{1}, \cdots , p_{n}\}\). La curva &egrave; definita dall'equazione:
-        </p>
-        <p>
-            \[p(t) = \sum_{k=0}^{n}{p_{k}B_{n,k}(t)} \quad \text{\(t \in [0,1]\)}\]
+            \[P(t) = \sum_{k=0}^{n}{P_{k}B_{n,k}(t)} \quad \text{\(t \in [0,1]\)}\]
         </p>
         <p>
             Dove \(B_{n,k}(t)\) sono i polinomi di Bernstein ed \(n\) &egrave; il grado della curva.
@@ -71,22 +73,96 @@
         <p>
             Tali punti si dicono punti di controllo. La spezzata formata dai segmenti che li congiungono si chiama
             poligono di controllo. Soltanto il primo e l'ultimo punto di controllo appartengono alla curva di B&eacute;zier,
-            mentre i restanti contribuiscono a modellizzare la curva nelle loro vicinanze. Si tratta quindi di una curva
-            approssimante, e non di una curva interpolante.
+            mentre i restanti contribuiscono a modellizzare la curva nelle loro vicinanze.
         </p>
         <p>
-            I polinomi di Bernstein servono come funzioni di blending per le curve di B&eacute;zier, cio&egrave; come
-            pesi
-            associati ai punti di controllo. L'ordine del polinomio che rappresenta la curva &egrave; uguale al numero
+            L'ordine del polinomio che rappresenta la curva &egrave; uguale al numero
             dei punti di controllo meno uno.
             Uno svantaggio delle curve di B&eacute;zier &egrave; rappresentato dalla mancanza di controllo locale sulla
             curva.
             Se modifichiamo un punto di controllo, la curva intera viene modificata, e non solo la parte locale vicina
-            al punto.
+            al punto. Per costruire una curva si puó utilizzare l'algoritmo ricorsivo di De Casteljau.
         </p>
         <p>
-            <img src="assets/bezier.gif">
+            <img src="assets/bezier2.png" width="auto" height="175">
         </p>
+
+        <h4>Curve di B&eacute;zier lineare</h4>
+        <p>
+            Dati due punti \(P_{0}\) e \(P_{1}\) dello spazio affine, la curva di B&eacute;zier determinata da questi
+            due punti e l'interpolazione lineare del segmento che li congiunge. Essa si muove di moto rettilineo
+            uniforme e la legge oraria che descrive questo moto &egrave;:
+        </p>
+        <p>
+            \[P(t)=(1-t)P_{0}+tP_{1} \quad \text{\(t \in [0,1]\)}\]
+        </p>
+        <p>
+            Il segmento si riduce ad un unico punto se \(P_{0} = P_{1}\).
+        </p>
+        <p>
+            <img src="assets/bl1.gif" width="auto" height="120">
+        </p>
+
+
+        <h4>Curve di B&eacute;zier quadratica</h4>
+        <p>
+            Dati tre punti \(P_{0}\), \(P_{1}\) e \(P_{2}\) dello spazio affine, possiamo iterare l'interpolazione
+            lineare ottenendo così una curva di Bézier quadratica definita dalla funzione:
+        </p>
+        <p>
+            \[P(t)=(1-t)^2 P_{0} + 2t(1-t)P_{1} + t^2 P_{2} \quad \text{\(t \in [0,1]\)}\]
+        </p>
+        <p>
+            Se i tre punti sono allineati, si ottiene ancora un segmento, anche se non più percorso a velocità costante.
+        </p>
+        <p>
+            <img src="assets/bq2.gif" width="auto" height="120">
+        </p>
+
+
+        <h4>Curve di B&eacute;zier cubica</h4>
+        <p>
+            In modo analogo si definiscono le curve di Bézier di terzo grado, iterando una volta in più il procedimento
+            di interpolazione lineare. Dati 4 punti \(P_{0}\), \(P_{1}\), \(P_{2}\) e \(P_{3}\) la legge oraria che
+            descrive questo moto è data dalla funzione parametrica:
+        </p>
+        <p>
+            \[P(t)=(1-t)^3 P_{0} + 3t(1-t)^2 P_{1} + 3t^2(1-t) P_{2} + t^3 P_{3} \quad \text{\(t \in [0,1]\)}\]
+        </p>
+        <p>
+            Se i tre punti sono allineati, si ottiene ancora un segmento, anche se non più percorso a velocità costante.
+        </p>
+
+        <p>
+            <img src="assets/bc3.gif" width="auto" height="120">
+        </p>
+
+
+        <h3>Algoritmo di De Casteljau</h3>
+        <p>
+            E’ un metodo che permette di costruire in modo semplice e algoritmico le curve nello spazio aventi
+            rappresentazione parametrica di tipo polinomiale. Fissato un valore \(\text{\(t \in [0,1]\)}\), esso
+            permette di calcolare il punto corrispondente sulla curva \(c(t)\) mediante interpolazioni lineari ripetute
+            a partire dai punti di controllo.
+        </p>
+        <p>
+            Dati n+1 punti , la curva di grado n è data dalla seguente equazione di ricorrenza:
+        </p>
+        <p>
+            \[P_{i}^{k}(t)=(1-t)P_{i}^{k-1}(t) + tP_{i+1}^{k-1}(t) \quad \text{\(t \in [0,1]\)} \quad , \quad con \quad
+            k=1,2, \cdots , n \quad , \quad i=0,1, \cdots , n-k\]
+        </p>
+
+        <h3>Curve Spline</h3>
+        <p>
+            Si può pensare alle curve Spline come attaccature di curve di Bezier. Uno dei principali vantaggi di una curva
+            Spline è il fatto che la modifica di un punto di controllo non si ripercuote su tutta la curva ma solo su una sua parte inoltre il numero dei punti di controllo non è legato al grado dei polinomi utilizzati.
+        </p>
+        <p>
+            Nel nostro caso si è deciso di utilizzare curve di Bezier di grado 3 che ci permettono di tracciare il primo e l'ultimo punto di ogni segmento e utilizzare gli altri due punti per modificarne la forma.
+        </p>
+
+
         <!--</div>-->
     </div>
 
