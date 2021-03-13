@@ -110,7 +110,7 @@
             </p>
 
 
-            <h4>Curve di B&eacute;zier lineare</h4>
+            <h4>Curve di B&eacute;zier lineari</h4>
             <p>
                 Dati due punti \(P_{0}\) e \(P_{1}\) dello spazio affine, la curva di B&eacute;zier determinata da
                 questi
@@ -128,7 +128,7 @@
             </p>
 
 
-            <h4>Curve di B&eacute;zier quadratica</h4>
+            <h4>Curve di B&eacute;zier quadratiche</h4>
             <p>
                 Dati tre punti \(P_{0}\), \(P_{1}\) e \(P_{2}\) dello spazio affine, possiamo iterare l'interpolazione
                 lineare ottenendo cos&igrave; una curva di B&eacute;zier quadratica definita dalla funzione:
@@ -145,7 +145,7 @@
             </p>
 
 
-            <h4>Curve di B&eacute;zier cubica</h4>
+            <h4>Curve di B&eacute;zier cubiche</h4>
             <p>
                 In modo analogo si definiscono le curve di B&eacute;zier di terzo grado, iterando una volta in pi&ugrave;
                 il
@@ -172,9 +172,8 @@
                 e l'ultimo punto di ogni segmento e utilizzare gli altri due punti per modificarne la forma.
             </p>
             <p>
-                Uno dei principali vantaggi di una
-                curva
-                Spline &egrave; il fatto che la modifica di un punto di controllo non si ripercuote su tutta la curva ma
+                Uno dei principali vantaggi di una curva Spline &egrave; il fatto che la modifica di un punto di
+                controllo non si ripercuote su tutta la curva ma
                 solo su
                 una sua parte, questo permette quindi un controllo locale di quest'ultima. Nel gioco questo vantaggio
                 &egrave;
@@ -193,43 +192,55 @@
             </p>
 
 
-            <p>
-                \(C^{0}\) - questo tipo di incollamento di ottiene con \(P_{k}=Q_{0}\).<br>
-                Ovvero che l'ultimo punto della prima curva deve coincidere con il primo punto della seconda curva,
-                condizione abbastanza ovvia per poter assicurare l'incollamento.
-            <div>
-                <div style="text-align:center;">Incollamento di classe \(C^{0}\)</div>
-                <img src="assets/c0.png" width="auto" height="150">
-            </div>
-            </p>
+            <ul>
+                <li class="job">
+                    <div class="left">
+                        \(C^{0}\) - questo tipo di incollamento di ottiene con \(P_{k}=Q_{0}\).<br>
+                        Ovvero che l'ultimo punto della prima curva deve coincidere con il primo punto della seconda
+                        curva,
+                        condizione abbastanza ovvia per poter assicurare l'incollamento.
+                        <div>
+                            <div style="text-align:center;">Incollamento di classe \(C^{0}\)</div>
+                            <img src="assets/c0.png" width="auto" height="150">
+                        </div>
+                    </div>
+                </li>
+                <li class="fun">
+                    <div class="left">
+                        \(C^{1}\) - questo tipo di incollamento si ottiene soddisfando \(C^{0}\) e \(P'(b)=Q'(b)\). Il
+                        penultimo
+                        punto della prima curva, l'ultimo punto della prima curva (che coincide con il primo della
+                        seconda curva) ed il primo punto della seconda curva, devono essere sempre allineati. Inoltre
+                        bisogna
+                        far si
+                        che \(P_{k}-P_{k-1}\) e \(Q_{0}-Q_{1}\) siano uguali. Per la realizzazione del progetto &egrave;
+                        stata
+                        implementato
+                        questo tipo di curva.
+                        <div>
+                            <div style="text-align:center;">Incollamento di classe \(C^{1}\)</div>
+                            <img src="assets/c1.png" width="auto" height="150">
+                        </div>
+                    </div>
+                </li>
+                <li class="event">
+                    <div class="left">
+                        \(C^{2}\) - questo di incollamento si ottiene soddisfando \(C^{1}\) e \(P''(b)=Q''(b)\).
+                        Deve esistere
+                        un
+                        punto di intersezione \(D\) chiamato punto di De Boor che si ottiene dall'intersezione di
+                        \(P_{k-2},
+                        P_{k-1}\) con \(Q_{1}, Q_{2}\). Devono essere inoltre mantenuti i rapporti semplici tra
+                        \(P_{k-1},
+                        P_{k}(=Q_{0}), Q_{1}\), \(P_{k-2}, P_{k-1}, D\) e \(D, Q_{1}, Q_{2}\).
+                        <div>
+                            <div style="text-align:center;">Incollamento di classe \(C^{2}\)</div>
+                            <img src="assets/c2.png" width="auto" height="270">
+                        </div>
+                    </div>
+                </li>
+            </ul>
 
-
-            <p>
-                \(C^{1}\) - questo tipo di incollamento si ottiene soddisfando \(C^{0}\) e \(P'(b)=Q'(b)\). Il penultimo
-                punto della prima curva, l'ultimo punto della prima curva (che coincide con il primo della
-                seconda curva) ed il primo punto della seconda curva, devono essere sempre allineati. Inoltre bisogna
-                far si
-                che \(P_{k}-P_{k-1}\) e \(Q_{0}-Q_{1}\) siano uguali. Per la realizzazione del progetto &egrave; stata
-                implementato
-                questo tipo di curva.
-            <div>
-                <div style="text-align:center;">Incollamento di classe \(C^{1}\)</div>
-                <img src="assets/c1.png" width="auto" height="150">
-            </div>
-            </p>
-
-
-            <p>
-                \(C^{2}\) - questo di incollamento si ottiene soddisfando \(C^{1}\) e \(P''(b)=Q''(b)\). Deve esistere
-                un
-                punto di intersezione \(D\) chiamato punto di De Boor che si ottiene dall'intersezione di \(P_{k-2},
-                P_{k-1}\) con \(Q_{1}, Q_{2}\). Devono essere inoltre mantenuti i rapporti semplici tra \(P_{k-1},
-                P_{k}(=Q_{0}), Q_{1}\), \(P_{k-2}, P_{k-1}, D\) e \(D, Q_{1}, Q_{2}\).
-            <div>
-                <div style="text-align:center;">Incollamento di classe \(C^{2}\)</div>
-                <img src="assets/c2.png" width="auto" height="270">
-            </div>
-            </p>
 
             <h3>
                 Implementazione
