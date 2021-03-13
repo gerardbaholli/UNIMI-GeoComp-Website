@@ -61,6 +61,26 @@
         </p>
 
         <h3>Curve di B&eacute;zier</h3>
+
+        <p>
+            Il nome deriva dal francese Pierre Bezier (1920-1999) che pubblicò per primo un articolo, mentre lavorava
+            presso la casa automobilistica Renault come disegnatore e progettista.
+        </p>
+
+        <p>
+            Le curve di Bezier vengono definite a partire da un numero finito di punti P0, P1, ..., Pn che formano il
+            poligono di controllo. P0 e Pn costituiscono rispettivamente l'inizio e la fine della curva, gli altri punti
+            invece
+            non si trovano sulla curva ma contribuiscono a modellarne la forma. Il grado della curva è dato dal numero
+            dei punti del poligono di controllo -1. Per calcolare una curva di Bezier si può utilizzare l'algoritmo di
+            De Castelau,
+            un algoritmo ricorsivo che per una curva di grado n prevede n-1 passi ricorsivi.
+        </p>
+
+        <p>
+            Scrivere formula De Casteljau ???
+        </p>
+
         <p>
             Siano dati \(n+1\) punti \(\{P_{0},P_{1}, \cdots , P_{n}\}\). La curva &egrave; definita dall'equazione:
         </p>
@@ -68,8 +88,10 @@
             \[P(t) = \sum_{k=0}^{n}{P_{k}B_{n,k}(t)} \quad \text{\(t \in [0,1]\)}\]
         </p>
         <p>
-            Dove \(B_{n,k}(t)\) sono i polinomi di Bernstein ed \(n\) &egrave; il grado della curva.
+            Dove \(B_{n,k}(t)\) sono i polinomi di Bernstein.
         </p>
+
+
         <p>
             Tali punti si dicono punti di controllo. La spezzata formata dai segmenti che li congiungono si chiama
             poligono di controllo. Soltanto il primo e l'ultimo punto di controllo appartengono alla curva di B&eacute;zier,
@@ -155,13 +177,75 @@
 
         <h3>Curve Spline</h3>
         <p>
-            Si può pensare alle curve Spline come attaccature di curve di Bezier. Uno dei principali vantaggi di una curva
-            Spline è il fatto che la modifica di un punto di controllo non si ripercuote su tutta la curva ma solo su una sua parte inoltre il numero dei punti di controllo non è legato al grado dei polinomi utilizzati.
+            Si può pensare alle curve Spline come attaccature di curve di Bezier, queste curve possono essere lineari,
+            quadratiche, cubiche o di grado maggiore. Nel nostro caso si è deciso di utilizzare curve di Bezier di grado
+            3 che ci permettono di tracciare il primo
+            e l'ultimo punto di ogni segmento e utilizzare gli altri due punti per modificarne la forma.
         </p>
         <p>
-            Nel nostro caso si è deciso di utilizzare curve di Bezier di grado 3 che ci permettono di tracciare il primo e l'ultimo punto di ogni segmento e utilizzare gli altri due punti per modificarne la forma.
+            Uno dei principali vantaggi di una
+            curva
+            Spline è il fatto che la modifica di un punto di controllo non si ripercuote su tutta la curva ma solo su
+            una sua parte, questo permette quindi un controllo locale di quest'ultima. Nel gioco questo vantaggio è
+            rilevante perchè permette al giocatore di cambiare una singola traettoria senza modificare le altre
+            preconfigurate.
         </p>
 
+        <p>
+            Esistono diverse classi di incollamento tra due curve \(P\) e \(Q\) (curve con lo stesso grado \(k\)).
+            Sappiamo che \(P\) è individuata in \(\{P_{0},\cdots,P_{k}\}\) e \(Q\) in \(\{Q_{0},\cdots,Q_{k}\}\).
+
+            <img src="assets/retta.png" width="auto" height="200">
+            \[P_{0} = a \quad , \quad P_{k} = b = Q_{0} \quad , \quad Q_{k} = c\]
+        </p>
+
+
+        <p>
+            \(C^{0}\) - questo tipo di incollamento di ottiene con \(P_{k}=Q_{0}\).<br>
+            Ovvero che l'ultimo punto della prima curva deve coincidere con il primo punto della seconda curva,
+            condizione abbastanza ovvia per poter assicurare l'incollamento.
+        <div>
+            <div style="text-align:center;">Incollamento di classe \(C^{0}\)</div>
+            <img src="assets/c0.png" width="auto" height="240">
+        </div>
+        </p>
+
+
+        <p>
+            \(C^{1}\) - questo tipo di incollamento si ottiene soddisfando \(C^{0}\) e \(P'(b)=Q'(b)\). Il penultimo
+            punto della prima curva, l'ultimo punto della prima curva (che coincide con il primo della
+            seconda curva) ed il primo punto della seconda curva, devono essere sempre allineati. Inoltre bisogna far si
+            che \(P_{k}-P_{k-1}\) e \(Q_{0}-Q_{1}\) siano uguali. Per la realizzazione del progetto è stata implementato
+            questo tipo di curva.
+        <div>
+            <div style="text-align:center;">Incollamento di classe \(C^{1}\)</div>
+            <img src="assets/c1.png" width="auto" height="240">
+        </div>
+        </p>
+
+
+        <p>
+            \(C^{2}\) - questo di incollamento si ottiene soddisfando \(C^{1}\) e \(P''(b)=Q''(b)\). Deve esistere un
+            punto di intersezione \(D\) chiamato punto di De Boor che si ottiene dall'intersezione di \(P_{k-2},
+            P_{k-1}\) con \(Q_{1}, Q_{2}\). Devono essere inoltre mantenuti i rapporti semplici tra \(P_{k-1},
+            P_{k}(=Q_{0}), Q_{1}\), \(P_{k-2}, P_{k-1}, D\) e \(D, Q_{1}, Q_{2}\).
+        <div>
+            <div style="text-align:center;">Incollamento di classe \(C^{2}\)</div>
+            <img src="assets/c2.png" width="auto" height="240">
+        </div>
+        </p>
+
+        <h3>
+            Implementazione
+        </h3>
+        <p>
+            La curva implementata, come detto precedentemente, è una curva Spline che presenta incollature di classe
+            \(C^{1}\) di curve di Bezier di grado 3. Le funzioni che si occupano di calcolare la curva di Bezier in
+            funzione del parametro \(t\) sono:
+        </p>
+        <p><code>
+            test sadgdsagadsg
+        </code></p>
 
         <!--</div>-->
     </div>
