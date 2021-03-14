@@ -54,13 +54,9 @@
         <h2 class="title flash">Teoria</h2>
         <div class="exp">
             <p>
-                Nel seguente progetto sono state implementate le curve Spline per permettere al giocatore di tracciare
-                il
-                percorso che la navicella spaziale dovr&agrave; effettuare per raccogliere i checkpoint predisposti
-                nella
-                mappa. L'idea alla base delle curve Spline &egrave; quella di incollare pi&ugrave; curve di B&eacute;zier
-                imponendo
-                delle condizioni di regolarit&agrave; nei punti di saldatura.
+                Nel seguente progetto sono state implementate le curve Spline. Le curve permettono al giocatore di
+                tracciare un percorso che consente alla navicella di raccogliere i checkpoint predisposti nel
+                livello.
             </p>
 
             <h3>Curve di B&eacute;zier</h3>
@@ -195,7 +191,7 @@
             <ul>
                 <li class="job">
                     <div class="left">
-                        \(C^{0}\) - questo tipo di incollamento di ottiene con \(P_{k}=Q_{0}\).<br>
+                        \(C^{0}\) - questo tipo di incollamento si ottiene con \(P_{k}=Q_{0}\).<br>
                         Ovvero che l'ultimo punto della prima curva deve coincidere con il primo punto della seconda
                         curva,
                         condizione abbastanza ovvia per poter assicurare l'incollamento.
@@ -290,63 +286,73 @@
                 Lo scopo del gioco &egrave; quello di creare un percorso tramite l'utilizzo della curva Spline in modo
                 tale
                 da
-                raccogliere tutte le monete distribuite nella mappa entro il tempo limite imposto dal livello.
+                raccogliere tutti i checkpoint distribuiti nella mappa entro il tempo limite imposto dal livello.
             </p>
+
+            <hr>
 
             <h3>Come giocare</h3>
 
-
             <h4>Posizionare un punto</h4>
-            <p>Per l'inserimento un punto di controllo nello schermo bisogna posizionare il mouse nella punto
+            <p>
+                Per l'inserimento di un punto di controllo nello schermo bisogna posizionare il mouse nel punto
                 interessato e
                 premere il
-                tardo destro di quest'ultimo. Dopo aver inserito il secondo punto verranno generati anche i punti
+                tasto destro, in questo modo comparir&agrave; un pallino verde. Dopo aver inserito il secondo punto
+                verranno generati anche i punti
                 intermedi
-                del poligono di controllo.
+                del poligono di controllo. Aggiungere un punto inoltre avvia il countdown.
             </p>
 
             <h4>Muovere un punto</h4>
             <p>
-                Posizionare il mouse nella posizione del punto e trascinarlo premendo e tenendo premuto il tasto
+                Posizionare il cursore nel punto desiderato e tenerlo premuto col tasto
                 sinistro
-                del mouse.
+                del mouse per trascinarlo.
             </p>
+
             <h4>Modellare la curva</h4>
             <p>
-                I pallini verdi rappresenteranno i punti iniziali e i punti finali delle curve di B&eacute;zier mentre i
-                pallini bianchi rappresenteranno i punti intermedi del poligono di controllo il cui scopo &egrave;
+                I pallini verdi rappresentano i punti iniziali e i punti finali delle curve di B&eacute;zier mentre i
+                pallini bianchi rappresentano i punti intermedi del poligono di controllo. Il loro scopo &egrave;
                 quello di
-                permettere la modellazione della curva. Muovere questi pallini permetter&agrave; di creare il percorso
-                che
-                permetter&agrave; di superare il livello.
+                permettere la modellazione della curva; muovere questi pallini permette di modellare il percorso
+                attraverso il quale si supera il livello.
+                <img src="assets/spline.png">
             </p>
 
             <h4>Far partire la navicella</h4>
             <p>
                 Tramite il tasto RUN &egrave; possibile far partire la navicella che si muover&agrave; lungo il percorso
                 precedentemente
-                generato dal giocatore. Il tasto RUN inoltre avvier&agrave; il countdown.
+                generato dal giocatore.
+                <img src="assets/ship.png">
             </p>
 
-            <h4>Collezionare le monete</h4>
+            <h4>Collezionare i checkpoint</h4>
             <p>
-                Raccogliere tutte le monete &egrave; cruciale per ottenere la vittoria. Il giocatore dovr&agrave; fare
+                Raccogliere tutti i checkpoint &egrave; cruciale per ottenere la vittoria. Il giocatore deve
+                fare
                 in
                 modo che il
-                percorso generato con la curva Spline passi per ognuna di esse.
+                percorso generato con la curva Spline passi per ognuno di essi.
+                <img src="assets/checkpoint.png">
             </p>
+
 
             <h4>Evitare gli ostacoli</h4>
             <p>
-                I pianeti sono gli ostacoli da evitare, l'impatto su di essi risulter&agrave; fatale pre la navicella.
+                I pianeti sono gli ostacoli da evitare, l'impatto con questi risulter&agrave; fatale per la navicella.
+                <img src="assets/block.png">
             </p>
 
             <h4>Riflettere sul percorso ideale</h4>
             <p>
-                Il countdown inizier&agrave; a scorrere solo quando il giocatore preme sul tasto RUN, fino ad allora,
-                quest'ultimo,
-                potr&agrave; riflettere su quale sia il percorso ideale.
+                Prima di posizionare il primo punto della curva Spline &egrave; opportuno riflettere sul percorso
+                ideale, in quanto una volta posizionato parte il countdown.
             </p>
+
+            <hr>
 
             <h3>Interfaccia utente</h3>
 
@@ -354,37 +360,45 @@
             <p>
                 Tramite il tasto RUN &egrave; possibile far partire la navicella che si muover&agrave; lungo il percorso
                 precedentemente
-                generato dal giocatore. Il tasto RUN inoltre avvier&agrave; il countdown.
+                generato dal giocatore.
+                <img src="assets/run.png">
             </p>
+
+
             <h4>Reset partita</h4>
             <p>
                 Tramite il tasto RESET &egrave; possibile ricominciare il livello, funzione utile nel momento in cui il
                 giocatore
-                si rende conto di aver sbagliato qualcosa. L'utilizzo del tasto RESET sar&agrave; vincolato al numero
-                dei
-                tentativi
-                consentiti.
+                si rende conto di aver sbagliato qualcosa. L'utilizzo del tasto RESET prevede il consumo di una vita.
+                <img src="assets/reset.png">
             </p>
+
 
             <h4>Countdown</h4>
             <p>
-                Il countdown &egrave; il tempo che il giocatore avr&agrave; per la creazione del percorso e per
-                permettere
-                alla navicella
-                di percorrere quest'ultimo.
+                Il countdown &egrave; il tempo che parte quando si posiziona il primo punto della curva Spline. Il
+                giocatore dovrà creare il percorso prima che il tempo scada, facendo attenzione a riservare qualche
+                secondo per il percorso della navicella.
+                <img src="assets/countdown.png">
             </p>
+
+
             <h4>Punteggio livello</h4>
             <p>
                 Indica il punteggio attuale del giocatore, viene calcolato sulla base dei secondi rimanenti da un
                 livello
                 all'altro dopo il superamento di essi.
+                <img src="assets/score.png">
             </p>
+
+
+            <hr>
 
             <h3>Power Up e Malus</h3>
             <p>
                 Sono gli oggetti che il giocatore pu&ograve; utilizzare a su&ograve; vantaggio o che dovr&agrave;
                 evitare
-                per evadere dagli
+                per eludere gli
                 effetti negativi.
             </p>
             <h4>Crescita</h4>
@@ -393,30 +407,42 @@
                 ostacoli
                 predisposti sullo schermo. La crescita fornir&agrave; inoltre 1 secondo in pi&ugrave; al tempo
                 rimanente.
+                <img src="assets/crescita.png">
             </p>
+
             <h4>Decrescita</h4>
             <p>
                 La decrescita diminuisce le dimensioni della navicella e con essa anche le possibilit&agrave; di colpire
                 gli
                 ostacoli predisposti sullo schermo. La decrescita rimuover&agrave; inoltre 1 secondo dal tempo
                 rimanente.
+                <img src="assets/decrescita.png">
             </p>
+
             <h4>Velocit&agrave;</h4>
             <p>
                 La velocit&agrave; permette alla navicella di muoversi pi&ugrave; velocemente.
+                <img src="assets/velocita.png">
             </p>
+
             <h4>Rallentamento</h4>
             <p>
                 Il rallentamento fa muovere la navicella pi&ugrave; lentamente.
+                <img src="assets/rallentamento.png">
             </p>
+
             <h4>Pi&ugrave; secondi</h4>
             <p>
                 Vengono aggiunti 2 secondi al tempo rimanente.
+                <img src="assets/bonusSec.png">
             </p>
+
             <h4>Meno secondi</h4>
             <p>
                 Vengono rimossi 2 secondi al tempo rimanente.
+                <img src="assets/malusSec.png">
             </p>
+
         </div>
     </div>
 
@@ -428,17 +454,13 @@
             o MacOS.
             <ul>
                 <li class="job">
-                    <div class="left"><a href="applet.html">WebGL</a></div>
+                    <div class="left"><a href="https://www.google.it/">WebGL</a></div>
                 </li>
                 <li class="fun">
-                    <div class="left"><a
-                            href="https://github.com/gerardbaholli/level-design-document/raw/master/main.pdf">Windows</a>
-                    </div>
+                    <div class="left"><a href="https://www.google.it/">Windows</a></div>
                 </li>
                 <li class="event">
-                    <div class="left"><a
-                            href="https://github.com/gerardbaholli/level-design-document/raw/master/main.pdf">Mac OS</a>
-                    </div>
+                    <div class="left"><a href="https://www.google.it/">Mac OS</a></div>
                 </li>
             </ul>
         </div>
