@@ -2,26 +2,26 @@
 <html>
 <head>
     <title>Spline Space</title>
-    <meta name="description" content="Geometria Computazionale"/>
-    <link rel="icon" type="image/x-icon" href="assets/sports_esports-24px.svg">
+    <meta content="Geometria Computazionale" name="description"/>
+    <link href="assets/sports_esports-24px.svg" rel="icon" type="image/x-icon">
 
     <!-- Favicon/theme -->
-    <link rel="shortcut icon" href="assets/sports_esports-24px.svg">
+    <link href="assets/sports_esports-24px.svg" rel="shortcut icon">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
 
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 
     <!-- Scripts -->
-    <script type='text/javascript' src='scripts.js'></script>
+    <script src='scripts.js' type='text/javascript'></script>
 
     <!-- Google -->
-    <meta name="google-site-verification" content="TOPBU-hLD3bnVo6E1puPdUFuR9G-6z3Mv18yJwf2iyY"/>
+    <meta content="TOPBU-hLD3bnVo6E1puPdUFuR9G-6z3Mv18yJwf2iyY" name="google-site-verification"/>
 
     <!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 <body>
@@ -31,7 +31,7 @@
 
     <!-- TITOLO -->
     <div class="main">
-        <img src="assets/logoUNIMI.png" class="logo" width="100" height="100">
+        <img class="logo" height="100" src="assets/logoUNIMI.png" width="100">
         <h1>Spline Space</h1>
         <h2>Geometria Computazionale (A.A. 2020-2021)</h2>
         <div class="intro">
@@ -84,7 +84,7 @@
             </p>
 
             <p>
-                <img src="assets/bezier2.png" width="auto" height="175">
+                <img height="175" src="assets/bezier2.png" width="auto">
             </p>
 
 
@@ -120,7 +120,7 @@
                 Il segmento si riduce ad un unico punto se \(P_{0} = P_{1}\).
             </p>
             <p>
-                <img src="assets/bl1.gif" width="auto" height="120">
+                <img height="120" src="assets/bl1.gif" width="auto">
             </p>
 
 
@@ -137,7 +137,7 @@
                 costante.
             </p>
             <p>
-                <img src="assets/bq2.gif" width="auto" height="120">
+                <img height="120" src="assets/bq2.gif" width="auto">
             </p>
 
 
@@ -153,7 +153,7 @@
                 \[P(t)=(1-t)^3 P_{0} + 3t(1-t)^2 P_{1} + 3t^2(1-t) P_{2} + t^3 P_{3} \quad \text{\(t \in [0,1]\)}\]
             </p>
             <p>
-                <img src="assets/bc3.gif" width="auto" height="150">
+                <img height="150" src="assets/bc3.gif" width="auto">
             </p>
 
 
@@ -183,7 +183,7 @@
                 Sappiamo che \(P\) &egrave; individuata in \(\{P_{0},\cdots,P_{k}\}\) e \(Q\) in
                 \(\{Q_{0},\cdots,Q_{k}\}\).
 
-                <img src="assets/retta.png" width="auto" height="150">
+                <img src="assets/retta.png" height="150" width="auto">
                 \[P_{0} = a \quad , \quad P_{k} = b = Q_{0} \quad , \quad Q_{k} = c\]
             </p>
 
@@ -196,8 +196,9 @@
                         curva,
                         condizione abbastanza ovvia per poter assicurare l'incollamento.
                         <div>
+                            <br>
                             <div style="text-align:center;">Incollamento di classe \(C^{0}\)</div>
-                            <img src="assets/c0.png" width="auto" height="150">
+                            <img height="150" src="assets/c0.png" width="auto">
                         </div>
                     </div>
                 </li>
@@ -207,15 +208,16 @@
                         penultimo
                         punto della prima curva, l'ultimo punto della prima curva (che coincide con il primo della
                         seconda curva) ed il primo punto della seconda curva, devono essere sempre allineati. Inoltre
-                        bisogna
-                        far si
-                        che \(P_{k}-P_{k-1}\) e \(Q_{0}-Q_{1}\) siano uguali. Per la realizzazione del progetto &egrave;
+                        bisogna far si che il rapporto semplice dato dai 3 punti allineati deve coincidere con il
+                        rapporto semplice dato dai 3 numeri reali \(a,b,c\) che costituiscono i nodi della Spline. Per
+                        la realizzazione del progetto &egrave;
                         stata
-                        implementato
-                        questo tipo di curva.
+                        implementata una curva Spline uniforme con incollamento di tipo \(C^{1}\).
+                        <br>
                         <div>
+                            <br>
                             <div style="text-align:center;">Incollamento di classe \(C^{1}\)</div>
-                            <img src="assets/c1.png" width="auto" height="150">
+                            <img height="150" src="assets/c1.png" width="auto">
                         </div>
                     </div>
                 </li>
@@ -228,10 +230,13 @@
                         \(P_{k-2},
                         P_{k-1}\) con \(Q_{1}, Q_{2}\). Devono essere inoltre mantenuti i rapporti semplici tra
                         \(P_{k-1},
-                        P_{k}(=Q_{0}), Q_{1}\), \(P_{k-2}, P_{k-1}, D\) e \(D, Q_{1}, Q_{2}\).
+                        P_{k}(=Q_{0}), Q_{1}\), \(P_{k-2}, P_{k-1}, D\) e \(D, Q_{1}, Q_{2}\) che devono coincidere con
+                        il rapporto semplice dei 3 numeri reali \(a,b,c\).
+                        <br>
                         <div>
+                            <br>
                             <div style="text-align:center;">Incollamento di classe \(C^{2}\)</div>
-                            <img src="assets/c2.png" width="auto" height="270">
+                            <img height="270" src="assets/c2.png" width="auto">
                         </div>
                     </div>
                 </li>
@@ -298,10 +303,13 @@
                 Per l'inserimento di un punto di controllo nello schermo bisogna posizionare il mouse nel punto
                 interessato e
                 premere il
-                tasto destro, in questo modo comparir&agrave; un pallino verde. Dopo aver inserito il secondo punto
-                verranno generati anche i punti
+                tasto destro (in alternativa si pu&ograve; premere il tasto A), in questo modo comparir&agrave; un pallino
+                verde. Dopo aver inserito il secondo punto
+                vengono generati automaticamente anche i punti
                 intermedi
-                del poligono di controllo. Aggiungere un punto inoltre avvia il countdown.
+                del poligono di controllo. Con l'aggiunta del secondo punto inoltre si genera la curva Spline. La Spline
+                pu&ograve; essere costruita con un qualsiasi numero di punti. L'aggiunta del primo punto avvia il
+                countdown.
             </p>
 
             <h4>Muovere un punto</h4>
@@ -318,16 +326,19 @@
                 quello di
                 permettere la modellazione della curva; muovere questi pallini permette di modellare il percorso
                 attraverso il quale si supera il livello.
-                <img src="assets/spline.png">
             </p>
+            <br>
+            <img src="assets/spline.png">
 
             <h4>Far partire la navicella</h4>
             <p>
                 Tramite il tasto RUN &egrave; possibile far partire la navicella che si muover&agrave; lungo il percorso
                 precedentemente
                 generato dal giocatore.
-                <img src="assets/ship.png">
+
             </p>
+            <br>
+            <img src="assets/ship.png">
 
             <h4>Collezionare i checkpoint</h4>
             <p>
@@ -336,15 +347,18 @@
                 in
                 modo che il
                 percorso generato con la curva Spline passi per ognuno di essi.
-                <img src="assets/checkpoint.png">
             </p>
+            <br>
+            <img src="assets/checkpoint.png">
 
 
             <h4>Evitare gli ostacoli</h4>
             <p>
-                I pianeti sono gli ostacoli da evitare, l'impatto con questi risulter&agrave; fatale per la navicella.
-                <img src="assets/block.png">
+                I pianeti sono gli ostacoli da evitare, l'impatto con questi risulter&agrave; fatale per la navicella
+                che perder&agrave; un punto vita.
             </p>
+            <br>
+            <img src="assets/block.png">
 
             <h4>Riflettere sul percorso ideale</h4>
             <p>
@@ -361,8 +375,9 @@
                 Tramite il tasto RUN &egrave; possibile far partire la navicella che si muover&agrave; lungo il percorso
                 precedentemente
                 generato dal giocatore.
-                <img src="assets/run.png">
             </p>
+            <br>
+            <img src="assets/run.png">
 
 
             <h4>Reset partita</h4>
@@ -370,78 +385,108 @@
                 Tramite il tasto RESET &egrave; possibile ricominciare il livello, funzione utile nel momento in cui il
                 giocatore
                 si rende conto di aver sbagliato qualcosa. L'utilizzo del tasto RESET prevede il consumo di una vita.
-                <img src="assets/reset.png">
             </p>
+            <br>
+            <img src="assets/reset.png">
 
 
             <h4>Countdown</h4>
             <p>
                 Il countdown &egrave; il tempo che parte quando si posiziona il primo punto della curva Spline. Il
-                giocatore dovrà creare il percorso prima che il tempo scada, facendo attenzione a riservare qualche
-                secondo per il percorso della navicella.
-                <img src="assets/countdown.png">
+                giocatore dovr&agrave; creare il percorso prima che il tempo scada, facendo attenzione a riservare
+                qualche
+                secondo per il percorso della navicella. Non riuscire a raccogliere i checkpoint entro il tempo limite
+                porta alla perdita di una vita.
             </p>
+            <br>
+            <img src="assets/countdown.png">
 
 
             <h4>Punteggio livello</h4>
             <p>
                 Indica il punteggio attuale del giocatore, viene calcolato sulla base dei secondi rimanenti da un
                 livello
-                all'altro dopo il superamento di essi.
-                <img src="assets/score.png">
+                all'altro dopo il superamento di essi. Il punteggio viene incrementato ad ogni livello e rappresenter&agrave;
+                il punteggio finale in caso di completamento del gioco o nel caso di game over. Lo scopo del gioco &egrave;
+                quello di superare i livelli nel minor tempo possibile in modo da aggiudicarsi un punteggio pi&ugrave; elevato
+                e stabilire un record.
             </p>
+            <br>
+            <img src="assets/score.png">
 
 
             <hr>
 
             <h3>Power Up e Malus</h3>
             <p>
-                Sono gli oggetti che il giocatore pu&ograve; utilizzare a su&ograve; vantaggio o che dovr&agrave;
+                Sono gli oggetti che il giocatore pu&ograve; utilizzare a suo vantaggio o che dovr&agrave;
                 evitare
                 per eludere gli
-                effetti negativi.
+                effetti negativi. Questi oggetti sono predisposti nella mappa a inizio livello. Sono la chiave per la
+                risoluzione di alcune situazioni complicate e possono anche offrire dei vantaggi di tipo temporale che
+                permettono di aumentare il potenziale punteggio finale. Attenzione, delle volte allungare il percorso
+                per prendere un Power Up pu&ograve; risultare positivo ai fini del punteggio. Altre volte raccogliere dei Malus
+                pu&ograve; risultare vantaggioso perch&egrave; posizionati in percorsi migliori. L'utilizzo di questi oggetti permette
+                al giocatore di definire una strategia per la risoluzione del livello.
             </p>
+
+
             <h4>Crescita</h4>
             <p>
                 La crescita aumenta le dimensioni della navicella e con essa anche le possibilit&agrave; di colpire gli
                 ostacoli
-                predisposti sullo schermo. La crescita fornir&agrave; inoltre 1 secondo in pi&ugrave; al tempo
+                predisposti sullo schermo. L'effetto di questo Power Up / Malus &egrave; definitivo per il tentativo del
+                livello in corso. La crescita fornir&agrave; inoltre 3 secondo in pi&ugrave; al tempo
                 rimanente.
-                <img src="assets/crescita.png">
             </p>
+            <br>
+            <img src="assets/crescita.png">
+
 
             <h4>Decrescita</h4>
             <p>
                 La decrescita diminuisce le dimensioni della navicella e con essa anche le possibilit&agrave; di colpire
                 gli
-                ostacoli predisposti sullo schermo. La decrescita rimuover&agrave; inoltre 1 secondo dal tempo
+                ostacoli predisposti sullo schermo. L'effetto di questo Power Up / Malus &egrave; definitivo per il
+                tentativo del livello in corso. La decrescita rimuover&agrave; inoltre 3 secondo dal tempo
                 rimanente.
-                <img src="assets/decrescita.png">
             </p>
+            <br>
+            <img src="assets/decrescita.png">
+
 
             <h4>Velocit&agrave;</h4>
             <p>
-                La velocit&agrave; permette alla navicella di muoversi pi&ugrave; velocemente.
-                <img src="assets/velocita.png">
+                La velocit&agrave; permette alla navicella di muoversi pi&ugrave; velocemente. L'effetto di questo Power
+                Up &egrave; definitivo per il tentativo del livello in corso.
             </p>
+            <br>
+            <img src="assets/velocita.png">
+
 
             <h4>Rallentamento</h4>
             <p>
-                Il rallentamento fa muovere la navicella pi&ugrave; lentamente.
-                <img src="assets/rallentamento.png">
+                Il rallentamento fa muovere la navicella pi&ugrave; lentamente. L'effetto di questo Malus &egrave;
+                definitivo per il tentativo del livello in corso.
             </p>
+            <br>
+            <img src="assets/rallentamento.png">
+
 
             <h4>Pi&ugrave; secondi</h4>
             <p>
                 Vengono aggiunti 2 secondi al tempo rimanente.
-                <img src="assets/bonusSec.png">
             </p>
+            <br>
+            <img src="assets/bonusSec.png">
+
 
             <h4>Meno secondi</h4>
             <p>
                 Vengono rimossi 2 secondi al tempo rimanente.
-                <img src="assets/malusSec.png">
             </p>
+            <br>
+            <img src="assets/malusSec.png">
 
         </div>
     </div>
