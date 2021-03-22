@@ -303,12 +303,13 @@
                 Per l'inserimento di un punto di controllo nello schermo bisogna posizionare il mouse nel punto
                 interessato e
                 premere il
-                tasto destro (in alternativa si pu&ograve; premere il tasto A), in questo modo comparir&agrave; un pallino
+                tasto destro (in alternativa si pu&ograve; premere il tasto A), in questo modo comparir&agrave; un
+                pallino
                 verde. Dopo aver inserito il secondo punto
                 vengono generati automaticamente anche i punti
                 intermedi
-                del poligono di controllo. Con l'aggiunta del secondo punto inoltre si genera la curva Spline. La Spline
-                pu&ograve; essere costruita con un qualsiasi numero di punti. L'aggiunta del primo punto avvia il
+                del poligono di controllo. Con l'aggiunta del secondo punto inoltre si genera la curva Spline.
+                L'aggiunta del primo punto avvia il
                 countdown.
             </p>
 
@@ -394,9 +395,10 @@
             <p>
                 Il countdown &egrave; il tempo che parte quando si posiziona il primo punto della curva Spline. Il
                 giocatore dovr&agrave; creare il percorso prima che il tempo scada, facendo attenzione a riservare
-                qualche
-                secondo per il percorso della navicella. Non riuscire a raccogliere i checkpoint entro il tempo limite
-                porta alla perdita di una vita.
+                qualche secondo per il percorso della navicella. Non riuscire a raccogliere i checkpoint entro il tempo
+                limite
+                porta alla perdita di una vita e alla ripetizione del livello. Il countdown sar&agrave; differente per
+                ogni livello.
             </p>
             <br>
             <img src="assets/countdown.png">
@@ -407,12 +409,25 @@
                 Indica il punteggio attuale del giocatore, viene calcolato sulla base dei secondi rimanenti da un
                 livello
                 all'altro dopo il superamento di essi. Il punteggio viene incrementato ad ogni livello e rappresenter&agrave;
-                il punteggio finale in caso di completamento del gioco o nel caso di game over. Lo scopo del gioco &egrave;
-                quello di superare i livelli nel minor tempo possibile in modo da aggiudicarsi un punteggio pi&ugrave; elevato
+                il punteggio finale in caso di completamento del gioco o nel caso di game over. Lo scopo del gioco
+                &egrave;
+                quello di superare i livelli nel minor tempo possibile in modo da aggiudicarsi un punteggio pi&ugrave;
+                elevato
                 e stabilire un record.
             </p>
             <br>
             <img src="assets/score.png">
+
+
+            <h4>Contatore punti rimanenti</h4>
+            <p>
+                All'inizio del livello, indica il numero massimo di punti che si possono usare per comporre la curva
+                Spline. Una volta aggiunto un punto, questo contatore, inizia a decrementare. Raggiunto lo zero,
+                non sar&agrave; pi&ugrave; possibile aggiungere ulteriori punti. Il contatore sar&agrave; differente per
+                ogni livello.
+            </p>
+            <br>
+            <img src="assets/points.png">
 
 
             <hr>
@@ -425,8 +440,10 @@
                 effetti negativi. Questi oggetti sono predisposti nella mappa a inizio livello. Sono la chiave per la
                 risoluzione di alcune situazioni complicate e possono anche offrire dei vantaggi di tipo temporale che
                 permettono di aumentare il potenziale punteggio finale. Attenzione, delle volte allungare il percorso
-                per prendere un Power Up pu&ograve; risultare positivo ai fini del punteggio. Altre volte raccogliere dei Malus
-                pu&ograve; risultare vantaggioso perch&egrave; posizionati in percorsi migliori. L'utilizzo di questi oggetti permette
+                per prendere un Power Up pu&ograve; risultare positivo ai fini del punteggio. Altre volte raccogliere
+                dei Malus
+                pu&ograve; risultare vantaggioso perch&egrave; posizionati in percorsi migliori. L'utilizzo di questi
+                oggetti permette
                 al giocatore di definire una strategia per la risoluzione del livello.
             </p>
 
@@ -502,10 +519,10 @@
                     <div class="left"><a href="applet.html">WebGL</a></div>
                 </li>
                 <li class="fun">
-                    <div class="left"><a href="https://www.google.it/">Windows</a></div>
+                    <div class="left"><a href="">Windows</a></div>
                 </li>
                 <li class="event">
-                    <div class="left"><a href="https://www.google.it/">Mac OS</a></div>
+                    <div class="left"><a href="">Mac OS</a></div>
                 </li>
             </ul>
         </div>
