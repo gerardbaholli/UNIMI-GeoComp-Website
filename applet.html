@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+<head>
     <title>Spline Space</title>
     <meta content="Geometria Computazionale" name="description"/>
     <link href="assets/sports_esports-24px.svg" rel="icon" type="image/x-icon">
@@ -18,28 +18,43 @@
 
     <!-- Google -->
     <meta content="TOPBU-hLD3bnVo6E1puPdUFuR9G-6z3Mv18yJwf2iyY" name="google-site-verification"/>
-  </head>
-  <body style="text-align: center">
+</head>
+<body style="text-align: center">
 
-  <p>
-    <a href="index.html" style="">Indietro</a>
-  </p>
+<div class="container">
 
-    <canvas id="unity-canvas" style="width: 1024px; height: 640px; background: #231F20"></canvas>
-    <script src="Build/Build.loader.js"></script>
-    <script>
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/Build.data",
-        frameworkUrl: "Build/Build.framework.js",
-        codeUrl: "Build/Build.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Origami Games",
-        productName: "Spline Space",
-        productVersion: "1.0",
-      });
-    </script>
+    <!-- TITLE + LINKS -->
+    <div class="main" style="text-align: left">
+        <img class="logo" height="100" src="assets/logoUNIMI.png" width="100">
+        <h1>Spline Space</h1>
+        <h2>Geometria Computazionale (A.A. 2020-2021)</h2>
+        <!-- LINKS -->
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="teoria.html">Teoria</a>
+            <a href="manuale.html">Manuale</a>
+            <a href="applet.html">Applet</a>
+        </div>
+    </div>
 
 
+    <div>
+        <canvas id="unity-canvas" style="width: 1024px; height: 640px; background: #231F20"></canvas>
+        <script src="Build/Build.loader.js"></script>
+        <script>
+            createUnityInstance(document.querySelector("#unity-canvas"), {
+                dataUrl: "Build/Build.data",
+                frameworkUrl: "Build/Build.framework.js",
+                codeUrl: "Build/Build.wasm",
+                streamingAssetsUrl: "StreamingAssets",
+                companyName: "Origami Games",
+                productName: "Spline Space",
+                productVersion: "1.0",
+            });
+        </script>
+    </div>
 
-  </body>
+</div>
+
+</body>
 </html>

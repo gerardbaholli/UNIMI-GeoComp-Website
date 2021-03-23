@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spline Space</title>
+    <meta content="Geometria Computazionale" name="description"/>
+    <link href="assets/sports_esports-24px.svg" rel="icon" type="image/x-icon">
+
+    <!-- Favicon/theme -->
+    <link href="assets/sports_esports-24px.svg" rel="shortcut icon">
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src='scripts.js' type='text/javascript'></script>
+
+    <!-- Google -->
+    <meta content="TOPBU-hLD3bnVo6E1puPdUFuR9G-6z3Mv18yJwf2iyY" name="google-site-verification"/>
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+
+<div class="container">
+
+    <!-- TITLE + LINKS -->
+    <div class="main">
+        <img class="logo" height="100" src="assets/logoUNIMI.png" width="100">
+        <h1>Spline Space</h1>
+        <h2>Geometria Computazionale (A.A. 2020-2021)</h2>
+        <!-- LINKS -->
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="teoria.html">Teoria</a>
+            <a href="manuale.html">Manuale</a>
+            <a href="applet.html">Applet</a>
+        </div>
+    </div>
+
+
+    <div>
+        <h1>Manuale</h1>
+        <h3>Scopo del gioco</h3>
+        <p>
+            Lo scopo del gioco &egrave; quello di creare un percorso tramite l'utilizzo della curva Spline in modo
+            tale
+            da
+            raccogliere tutti i checkpoint distribuiti nella mappa entro il tempo limite imposto dal livello.
+        </p>
+        <p>
+            &Egrave; possibile giocare direttamente da browser tramite WebGL su Windows, MacOS e Linux.
+            &Egrave; inoltre disponibile una versione locale per Windows.
+        </p>
+
+        <hr>
+
+        <h3>Come giocare</h3>
+
+        <h4>Posizionare un punto</h4>
+        <p>
+            Per l'inserimento di un punto di controllo nello schermo bisogna posizionare il mouse nel punto
+            interessato e
+            premere il
+            tasto destro (in alternativa si pu&ograve; premere il tasto <b>a</b>), in questo modo comparir&agrave;
+            un
+            pallino
+            verde. Dopo aver inserito il secondo punto
+            vengono generati automaticamente anche i punti
+            intermedi
+            del poligono di controllo. Con l'aggiunta del secondo punto inoltre si genera la curva Spline.
+            L'aggiunta del primo punto avvia il
+            countdown.
+        </p>
+
+        <h4>Muovere un punto</h4>
+        <p>
+            Posizionare il cursore nel punto desiderato e tenerlo premuto col tasto
+            sinistro
+            del mouse per trascinarlo.
+        </p>
+
+        <h4>Modellare la curva</h4>
+        <p>
+            I pallini verdi rappresentano i punti iniziali e i punti finali delle curve di B&eacute;zier mentre i
+            pallini bianchi rappresentano i punti intermedi del poligono di controllo. Il loro scopo &egrave;
+            quello di
+            permettere la modellazione della curva; muovere questi pallini permette di modellare il percorso
+            attraverso il quale si supera il livello.
+        </p>
+        <br>
+        <img src="assets/spline.png">
+
+        <h4>Far partire la navicella</h4>
+        <p>
+            Tramite il tasto RUN &egrave; possibile far partire la navicella che si muover&agrave; lungo il percorso
+            precedentemente
+            generato dal giocatore.
+
+        </p>
+        <br>
+        <img src="assets/ship.png">
+
+        <h4>Collezionare i checkpoint</h4>
+        <p>
+            Raccogliere tutti i checkpoint &egrave; cruciale per ottenere la vittoria. Il giocatore deve
+            fare
+            in
+            modo che il
+            percorso generato con la curva Spline passi per ognuno di essi.
+        </p>
+        <br>
+        <img src="assets/checkpoint.png">
+
+
+        <h4>Evitare gli ostacoli</h4>
+        <p>
+            I pianeti sono gli ostacoli da evitare, l'impatto con questi risulter&agrave; fatale per la navicella
+            che perder&agrave; un punto vita.
+        </p>
+        <br>
+        <img src="assets/block.png">
+
+        <h4>Riflettere sul percorso ideale</h4>
+        <p>
+            Prima di posizionare il primo punto della curva Spline &egrave; opportuno riflettere sul percorso
+            ideale, in quanto una volta posizionato parte il countdown.
+        </p>
+
+        <hr>
+
+        <h3>Interfaccia utente</h3>
+
+        <h4>Far partire la navicella</h4>
+        <p>
+            Tramite il tasto <b>RUN</b> &egrave; possibile far partire la navicella che si muover&agrave; lungo il
+            percorso
+            precedentemente
+            generato dal giocatore.
+        </p>
+        <br>
+        <img src="assets/run.png">
+
+
+        <h4>Reset partita</h4>
+        <p>
+            Tramite il tasto <b>RESET</b> &egrave; possibile ricominciare il livello, funzione utile nel momento in
+            cui il
+            giocatore
+            si rende conto di aver sbagliato qualcosa. L'utilizzo del tasto RESET prevede il consumo di una vita.
+        </p>
+        <br>
+        <img src="assets/reset.png">
+
+
+        <h4>Countdown</h4>
+        <p>
+            Il countdown &egrave; il tempo che parte quando si posiziona il primo punto della curva Spline. Il
+            giocatore dovr&agrave; creare il percorso prima che il tempo scada, facendo attenzione a riservare
+            qualche secondo per il percorso della navicella. Non riuscire a raccogliere i checkpoint entro il tempo
+            limite
+            porta alla perdita di una vita e alla ripetizione del livello. Il countdown sar&agrave; differente per
+            ogni livello.
+        </p>
+        <br>
+        <img src="assets/countdown.png">
+
+
+        <h4>Punteggio livello</h4>
+        <p>
+            Indica il punteggio attuale del giocatore, viene calcolato sulla base dei secondi rimanenti da un
+            livello
+            all'altro dopo il superamento di essi. Il punteggio viene incrementato ad ogni livello e rappresenter&agrave;
+            il punteggio finale in caso di completamento del gioco o nel caso di game over. Lo scopo del gioco
+            &egrave;
+            quello di superare i livelli nel minor tempo possibile in modo da aggiudicarsi un punteggio pi&ugrave;
+            elevato
+            e stabilire un record.
+        </p>
+        <br>
+        <img src="assets/score.png">
+
+
+        <h4>Contatore punti rimanenti</h4>
+        <p>
+            All'inizio del livello, indica il numero massimo di punti che si possono usare per comporre la curva
+            Spline. Una volta aggiunto un punto, questo contatore, inizia a decrementare. Raggiunto lo zero,
+            non sar&agrave; pi&ugrave; possibile aggiungere ulteriori punti. Il contatore sar&agrave; differente per
+            ogni livello.
+        </p>
+        <br>
+        <img src="assets/points.png">
+
+
+        <hr>
+
+        <h3>Power Up e Malus</h3>
+        <p>
+            Sono gli oggetti che il giocatore pu&ograve; utilizzare a suo vantaggio o che dovr&agrave;
+            evitare
+            per eludere gli
+            effetti negativi. Questi oggetti sono predisposti nella mappa a inizio livello. Sono la chiave per la
+            risoluzione di alcune situazioni complicate e possono anche offrire dei vantaggi di tipo temporale che
+            permettono di aumentare il potenziale punteggio finale. Attenzione, delle volte allungare il percorso
+            per prendere un Power Up pu&ograve; risultare positivo ai fini del punteggio. Altre volte raccogliere
+            dei Malus
+            pu&ograve; risultare vantaggioso perch&egrave; posizionati in percorsi migliori. L'utilizzo di questi
+            oggetti permette
+            al giocatore di definire una strategia per la risoluzione del livello.
+        </p>
+
+
+        <h4>Crescita</h4>
+        <p>
+            La crescita aumenta le dimensioni della navicella e con essa anche le possibilit&agrave; di colpire gli
+            ostacoli
+            predisposti sullo schermo. L'effetto di questo Power Up / Malus &egrave; definitivo per il tentativo del
+            livello in corso. La crescita fornir&agrave; inoltre 3 secondo in pi&ugrave; al tempo
+            rimanente.
+        </p>
+        <br>
+        <img src="assets/crescita.png">
+
+
+        <h4>Decrescita</h4>
+        <p>
+            La decrescita diminuisce le dimensioni della navicella e con essa anche le possibilit&agrave; di colpire
+            gli
+            ostacoli predisposti sullo schermo. L'effetto di questo Power Up / Malus &egrave; definitivo per il
+            tentativo del livello in corso. La decrescita rimuover&agrave; inoltre 3 secondo dal tempo
+            rimanente.
+        </p>
+        <br>
+        <img src="assets/decrescita.png">
+
+
+        <h4>Velocit&agrave;</h4>
+        <p>
+            La velocit&agrave; permette alla navicella di muoversi pi&ugrave; velocemente. L'effetto di questo Power
+            Up &egrave; definitivo per il tentativo del livello in corso.
+        </p>
+        <br>
+        <img src="assets/velocita.png">
+
+
+        <h4>Rallentamento</h4>
+        <p>
+            Il rallentamento fa muovere la navicella pi&ugrave; lentamente. L'effetto di questo Malus &egrave;
+            definitivo per il tentativo del livello in corso.
+        </p>
+        <br>
+        <img src="assets/rallentamento.png">
+
+
+        <h4>Pi&ugrave; secondi</h4>
+        <p>
+            Vengono aggiunti 2 secondi al tempo rimanente.
+        </p>
+        <br>
+        <img src="assets/bonusSec.png">
+
+
+        <h4>Meno secondi</h4>
+        <p>
+            Vengono rimossi 2 secondi al tempo rimanente.
+        </p>
+        <br>
+        <img src="assets/malusSec.png">
+    </div>
+
+</div>
+
+</body>
+</html>
