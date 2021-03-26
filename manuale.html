@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" rel="stylesheet">
+
     <title>Spline Space</title>
-    <meta content="Geometria Computazionale" name="description"/>
-    <link href="assets/sports_esports-24px.svg" rel="icon" type="image/x-icon">
 
-    <!-- Favicon/theme -->
-    <link href="assets/sports_esports-24px.svg" rel="shortcut icon">
-
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
-
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-
-    <!-- Scripts -->
-    <script src='scripts.js' type='text/javascript'></script>
+    <!-- Gerard Stylesheet -->
+    <link href="style.css" rel="stylesheet" type="text/css"/>
 
     <!-- Google -->
     <meta content="TOPBU-hLD3bnVo6E1puPdUFuR9G-6z3Mv18yJwf2iyY" name="google-site-verification"/>
@@ -22,31 +20,26 @@
     <!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
 </head>
 <body>
 
+<div id="page">
+    <a href="index.html">
+        <img alt="title" class="img-fluid" src="images/title.png">
+    </a>
 
-<div class="container">
-
-    <!-- TITLE + LINKS -->
-    <div class="main">
-        <img class="logo" height="100" src="assets/logoUNIMI.png" width="100">
-        <h1>Spline Space</h1>
-        <h2>Geometria Computazionale (A.A. 2020-2021)</h2>
-        <!-- LINKS -->
-        <div class="links">
-            <a href="index.html">Home</a>
-            <a href="teoria.html">Teoria</a>
-            <a>Manuale</a>
-            <a href="applet.html">Applet</a>
-        </div>
+    <!-- MENU -->
+    <div class="d-grid gap-2 d-md-block text-center" id="menu">
+        <a class="btn btn-outline-light" href="index.html" role="button">Home</a>
+        <a class="btn btn-outline-light" href="teoria.html" role="button">Teoria</a>
+        <a class="btn btn-light" href="manuale.html" role="button">Manuale</a>
+        <a class="btn btn-outline-light" href="applet.html" role="button">Applet</a>
     </div>
 
 
-    <div>
-        <h1>Manuale</h1>
-        <h3>Scopo del gioco</h3>
+    <!-- BODY -->
+    <div class="container-sm">
+        <h2>Scopo del gioco</h2>
         <p>
             Lo scopo del gioco &egrave; quello di creare un percorso tramite l'utilizzo della curva Spline in modo
             tale
@@ -54,15 +47,15 @@
             raccogliere tutti i checkpoint distribuiti nella mappa entro il tempo limite imposto dal livello.
         </p>
         <p>
-            &Egrave; possibile giocare direttamente da browser tramite WebGL su Windows, MacOS e Linux.
-            &Egrave; inoltre disponibile una versione locale per Windows.
+            &Egrave; possibile giocare direttamente da browser tramite <a href="applet.html">WebGL</a> su Windows, MacOS e Linux.
+            <!-- &Egrave; inoltre disponibile una versione scaricabile per <a href="Spline%20Space.zip">Windows</a>. -->
         </p>
 
         <hr>
 
-        <h3>Come giocare</h3>
+        <h2>Come giocare</h2>
 
-        <h4>Posizionare un punto</h4>
+        <h5>Posizionare un punto</h5>
         <p>
             Per l'inserimento di un punto di controllo nello schermo bisogna posizionare il mouse nel punto
             interessato e
@@ -78,14 +71,14 @@
             countdown.
         </p>
 
-        <h4>Muovere un punto</h4>
+        <h5>Muovere un punto</h5>
         <p>
             Posizionare il cursore nel punto desiderato e tenerlo premuto col tasto
             sinistro
             del mouse per trascinarlo.
         </p>
 
-        <h4>Modellare la curva</h4>
+        <h5>Modellare la curva</h5>
         <p>
             I pallini verdi rappresentano i punti iniziali e i punti finali delle curve di B&eacute;zier mentre i
             pallini bianchi rappresentano i punti intermedi del poligono di controllo. Il loro scopo &egrave;
@@ -94,9 +87,9 @@
             attraverso il quale si supera il livello.
         </p>
         <br>
-        <img src="assets/spline.png">
+        <img src="images/spline.png" class="img-fluid img-thumbnail">
 
-        <h4>Far partire la navicella</h4>
+        <h5>Far partire la navicella</h5>
         <p>
             Tramite il tasto RUN &egrave; possibile far partire la navicella che si muover&agrave; lungo il percorso
             precedentemente
@@ -104,9 +97,9 @@
 
         </p>
         <br>
-        <img src="assets/ship.png">
+        <img src="images/ship.png" class="img-fluid img-thumbnail">
 
-        <h4>Collezionare i checkpoint</h4>
+        <h5>Collezionare i checkpoint</h5>
         <p>
             Raccogliere tutti i checkpoint &egrave; cruciale per ottenere la vittoria. Il giocatore deve
             fare
@@ -115,18 +108,18 @@
             percorso generato con la curva Spline passi per ognuno di essi.
         </p>
         <br>
-        <img src="assets/checkpoint.png">
+        <img src="images/checkpoint.png" class="img-fluid img-thumbnail">
 
 
-        <h4>Evitare gli ostacoli</h4>
+        <h5>Evitare gli ostacoli</h5>
         <p>
             I pianeti sono gli ostacoli da evitare, l'impatto con questi risulter&agrave; fatale per la navicella
             che perder&agrave; un punto vita.
         </p>
         <br>
-        <img src="assets/block.png">
+        <img src="images/block.png" class="img-fluid img-thumbnail">
 
-        <h4>Riflettere sul percorso ideale</h4>
+        <h5>Riflettere sul percorso ideale</h5>
         <p>
             Prima di posizionare il primo punto della curva Spline &egrave; opportuno riflettere sul percorso
             ideale, in quanto una volta posizionato parte il countdown.
@@ -134,9 +127,9 @@
 
         <hr>
 
-        <h3>Interfaccia utente</h3>
+        <h2>Interfaccia utente</h2>
 
-        <h4>Far partire la navicella</h4>
+        <h5>Far partire la navicella</h5>
         <p>
             Tramite il tasto <b>RUN</b> &egrave; possibile far partire la navicella che si muover&agrave; lungo il
             percorso
@@ -144,10 +137,10 @@
             generato dal giocatore.
         </p>
         <br>
-        <img src="assets/run.png">
+        <img src="images/run.png" class="img-fluid img-thumbnail">
 
 
-        <h4>Reset partita</h4>
+        <h5>Reset partita</h5>
         <p>
             Tramite il tasto <b>RESET</b> &egrave; possibile ricominciare il livello, funzione utile nel momento in
             cui il
@@ -155,10 +148,10 @@
             si rende conto di aver sbagliato qualcosa. L'utilizzo del tasto RESET prevede il consumo di una vita.
         </p>
         <br>
-        <img src="assets/reset.png">
+        <img src="images/reset.png" class="img-fluid img-thumbnail">
 
 
-        <h4>Countdown</h4>
+        <h5>Countdown</h5>
         <p>
             Il countdown &egrave; il tempo che parte quando si posiziona il primo punto della curva Spline. Il
             giocatore dovr&agrave; creare il percorso prima che il tempo scada, facendo attenzione a riservare
@@ -168,10 +161,10 @@
             ogni livello.
         </p>
         <br>
-        <img src="assets/countdown.png">
+        <img src="images/countdown.png" class="img-fluid img-thumbnail">
 
 
-        <h4>Punteggio livello</h4>
+        <h5>Punteggio livello</h5>
         <p>
             Indica il punteggio attuale del giocatore, viene calcolato sulla base dei secondi rimanenti da un
             livello
@@ -183,10 +176,10 @@
             e stabilire un record.
         </p>
         <br>
-        <img src="assets/score.png">
+        <img src="images/score.png" class="img-fluid img-thumbnail">
 
 
-        <h4>Contatore punti rimanenti</h4>
+        <h5>Contatore punti rimanenti</h5>
         <p>
             All'inizio del livello, indica il numero massimo di punti che si possono usare per comporre la curva
             Spline. Una volta aggiunto un punto, questo contatore, inizia a decrementare. Raggiunto lo zero,
@@ -194,12 +187,12 @@
             ogni livello.
         </p>
         <br>
-        <img src="assets/points.png">
+        <img src="images/points.png" class="img-fluid img-thumbnail">
 
 
         <hr>
 
-        <h3>Power Up e Malus</h3>
+        <h2>Power Up e Malus</h2>
         <p>
             Sono gli oggetti che il giocatore pu&ograve; utilizzare a suo vantaggio o che dovr&agrave;
             evitare
@@ -215,7 +208,7 @@
         </p>
 
 
-        <h4>Crescita</h4>
+        <h5>Crescita</h5>
         <p>
             La crescita aumenta le dimensioni della navicella e con essa anche le possibilit&agrave; di colpire gli
             ostacoli
@@ -224,10 +217,10 @@
             rimanente.
         </p>
         <br>
-        <img src="assets/crescita.png">
+        <img src="images/crescita.png" class="img-fluid img-thumbnail">
 
 
-        <h4>Decrescita</h4>
+        <h5>Decrescita</h5>
         <p>
             La decrescita diminuisce le dimensioni della navicella e con essa anche le possibilit&agrave; di colpire
             gli
@@ -236,44 +229,49 @@
             rimanente.
         </p>
         <br>
-        <img src="assets/decrescita.png">
+        <img src="images/decrescita.png" class="img-fluid img-thumbnail">
 
 
-        <h4>Velocit&agrave;</h4>
+        <h5>Velocit&agrave;</h5>
         <p>
             La velocit&agrave; permette alla navicella di muoversi pi&ugrave; velocemente. L'effetto di questo Power
             Up &egrave; definitivo per il tentativo del livello in corso.
         </p>
         <br>
-        <img src="assets/velocita.png">
+        <img src="images/velocita.png" class="img-fluid img-thumbnail">
 
 
-        <h4>Rallentamento</h4>
+        <h5>Rallentamento</h5>
         <p>
             Il rallentamento fa muovere la navicella pi&ugrave; lentamente. L'effetto di questo Malus &egrave;
             definitivo per il tentativo del livello in corso.
         </p>
         <br>
-        <img src="assets/rallentamento.png">
+        <img src="images/rallentamento.png" class="img-fluid img-thumbnail">
 
 
-        <h4>Pi&ugrave; secondi</h4>
+        <h5>Pi&ugrave; secondi</h5>
         <p>
             Vengono aggiunti 2 secondi al tempo rimanente.
         </p>
         <br>
-        <img src="assets/bonusSec.png">
+        <img src="images/bonusSec.png" class="img-fluid img-thumbnail">
 
 
-        <h4>Meno secondi</h4>
+        <h5>Meno secondi</h5>
         <p>
             Vengono rimossi 2 secondi al tempo rimanente.
         </p>
         <br>
-        <img src="assets/malusSec.png">
+        <img src="images/malusSec.png" class="img-fluid img-thumbnail">
     </div>
 
+
+    <script crossorigin="anonymous"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
 </div>
+
 
 </body>
 </html>

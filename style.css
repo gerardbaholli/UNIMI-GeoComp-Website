@@ -1,0 +1,40 @@
+
+h2 {
+    color: yellow;
+}
+
+img {
+    margin: 20px auto 20px auto;
+    display: block;
+}
+
+#page {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    height: auto;
+    /*background-image: url("images/stars.png");*/
+    background-color: black;
+    color: white;
+}
+
+#menu {
+    margin: 0 45px 25px 45px;
+    text-align: center;
+}
+
+a {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+
+
